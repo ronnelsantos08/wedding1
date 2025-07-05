@@ -1,0 +1,155 @@
+
+/* Define CSS Variables for colors */
+:root {
+  --text-color: #ffffff;
+  --overlay-color: rgba(0, 0, 0, 0.5);
+  --card-bg-color: rgba(255, 255, 255, 0.1);
+  --pink-gradient-start: #ec4899; /* Tailwind pink-500 */
+  --red-gradient-end: #ef4444;   /* Tailwind red-500 */
+  --pink-gradient-hover-start: #db2777; /* Tailwind pink-600 */
+  --red-gradient-hover-end: #dc2626;   /* Tailwind red-600 */
+  --pink-ring-color: rgba(244, 114, 182, 0.5); /* Tailwind pink-300 with opacity */
+}
+
+  
+  @font-face {
+    font-family: 'MyWeddingFont2';
+    src: url('../fonts/DaltonWhite.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+
+
+.wedding-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.carousel-image {
+  position: absolute;
+  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the area, cropping from center */
+  transition: opacity 1000ms ease-in-out;
+  opacity: 0; /* Hidden by default */
+}
+
+.carousel-image.active {
+  opacity: 1; /* Active image is visible */
+}
+
+.background-overlay1 {
+  position: absolute;
+  inset: 0;
+  background-color: var(--overlay-color);
+}
+
+.content-container {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem; /* p-4 */
+  transition: opacity 1000ms ease-out;
+}
+
+.content-container.visible {
+  opacity: 1;
+}
+
+.content-container:not(.visible) {
+  opacity: 0;
+}
+
+.wedding-title,
+.wedding-date,
+.save-date-button {
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1)); /* drop-shadow-lg */
+  transition: all 1000ms ease-out;
+  opacity: 0;
+  transform: translateY(2rem) scale(0.95); /* translate-y-8 scale-95 */
+}
+
+.wedding-title {
+    font-family: 'MyWeddingFont2', serif;
+  font-weight: bold;
+  margin-bottom: 1rem; /* mb-4 */
+  padding: 1rem; /* p-4 */
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+.music-player-container {
+    width: 80%; /* Responsive width */
+    max-width: 400px; /* Max width for larger screens */
+    margin-bottom: 1.5rem; /* Space between h1 and p */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    display: flex; /* Use flexbox for audio and equalizer */
+    flex-direction: column; /* Stack audio and equalizer vertically */
+    align-items: center;
+    transition-delay: 200ms; /* Staggered delay */
+  }
+     /* Style for the audio controls themselves */
+     .music-player-container audio {
+        width: 100%;
+        border-radius: 0.5rem;
+        /* Removed margin-bottom: 0.5rem; as equalizer is gone */
+      }
+
+.wedding-date {
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  font-weight: 500; /* font-medium */
+  margin-bottom: 2rem; /* mb-8 */
+  padding: 0.75rem; /* p-3 */
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  transition-delay: 300ms; /* delay-300 */
+}
+
+.save-date-button {
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  background-image: linear-gradient(to right, var(--pink-gradient-start), var(--red-gradient-end));
+  color: var(--text-color);
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+  padding: clamp(0.75rem, 1.5vw, 1.25rem) clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  cursor: pointer;
+  border: none; /* Remove default button border */
+  transition-delay: 600ms; /* delay-600 */
+  filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08)); /* drop-shadow-xl */
+}
+
+.save-date-button:hover {
+  background-image: linear-gradient(to right, var(--pink-gradient-hover-start), var(--red-gradient-hover-end));
+  transform: translateY(0) scale(1.05); /* hover:scale-105 */
+}
+
+.save-date-button:active {
+  transform: translateY(0) scale(0.95); /* active:scale-95 */
+}
+
+.save-date-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--pink-ring-color); /* focus:ring-4 focus:ring-pink-300 */
+}
+
+/* Animation class for text and button entry */
+.text-button-entry-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

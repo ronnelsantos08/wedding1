@@ -1,0 +1,170 @@
+  
+  @font-face {
+    font-family: 'MyWeddingFont2';
+    src: url('../fonts/DaltonWhite.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+.stack-container {
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #DCDCDC;
+}
+/* Container for the draggable images */
+.image-stack-container {
+  overflow: hidden;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  position: relative;
+  width: 80vw; /* Responsive width */
+  min-height: 90vh; /* Responsive height */
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  background-color: #fff; /* Fallback background color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex; /* Use flex to center content if needed */
+  flex-direction: column; /* Arrange title and images vertically */
+  align-items: center;
+  justify-content: flex-start; /* Align content to the top */
+  padding-top: 20px; /* Add some padding at the top for the title */
+
+  /* Background Image Styling */
+  background-image: url('/ImgGallery/bg.jpeg'); /* Placeholder background image */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image within the container */
+  background-repeat: no-repeat; /* Prevents image repetition */
+}
+
+/* Overlay for the background image to improve contrast */
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Add this to ImgGallery.css */
+.app-title {
+  font-family: 'MyWeddingFont2', serif;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.app-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Styling for each individual draggable image */
+.draggable-image {
+  position: absolute; /* Allows precise positioning */
+  width: clamp(150px, 15vw, 250px); /* Responsive width using clamp */
+  height: clamp(150px, 15vw, 250px); /* Responsive height using clamp */
+  cursor: grab; /* Indicates draggable */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border 0.2s ease-out; /* Smooth transitions for hover, drag, and pin */
+  user-select: none; /* Prevent text selection on drag */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  z-index: 10; /* Ensure draggable images are above the overlay */
+  border: 2px solid transparent; /* Default transparent border */
+}
+
+/* Pinned effect: green ring and slightly less pronounced shadow */
+.draggable-image.pinned {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15), 0 0 0 3px #09330b; /* Inner green ring for pinned */
+}
+
+.draggable-image:hover {
+  transform: scale(1.05) rotate(0deg); /* Pop-out effect: slightly larger and straightens */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+  z-index: 999; /* Bring to front on hover, but allow active drag to override */
+  border: 2px solid transparent; /* Ensure hover overrides any pinned border */
+}
+
+.draggable-image:active {
+  cursor: grabbing; /* Indicates actively dragging */
+  z-index: 1000 !important; /* Ensure it's always on top when active */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow when active */
+}
+
+.draggable-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the container */
+  border-radius: 10px;
+}
+
+.flower-decoration {
+  position: absolute;
+  width: clamp(100px, 18vw, 300px); /* scales better */
+  height: auto;
+  top: -40px;
+  z-index: 9999;
+  opacity: 0.95;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* LEFT FLOWER */
+.flower-decoration.left {
+  z-index: 100;
+  left: calc(5vw); /* Adjusts based on screen width */
+  top: calc(0vw);
+  transform: rotate(-15deg);
+}
+
+/* RIGHT FLOWER - Responsive and consistent */
+/* RIGHT FLOWER - Bottom Right Corner */
+.flower-decoration.right {
+  right: 5vw;
+  bottom: 1vw; /* Place it below the container */
+  top: auto; /* Ensure top doesn't interfere */
+  transform: rotate(15deg);
+}
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(15deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(15deg);
+  }
+}
+
+.flower-decoration {
+  animation: float 4s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .flower-decoration.right {
+    right: 4vw;
+    bottom: -4vw;
+    width: 200px;
+  }
+  .image-stack-container {
+    width: 90vw; /* Responsive width */
+    min-height: 90vh; /* Responsive height */
+  }
+  .flower-decoration.left {
+    left: calc(-5vw); /* Adjusts based on screen width */
+    top: calc(-10vw);
+    width: 200px;
+    transform: rotate(-15deg);
+  }
+}
