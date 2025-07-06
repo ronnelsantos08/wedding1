@@ -97,8 +97,13 @@ const Hero = () => {
 
       <div className={`content-container ${contentVisible ? 'visible' : ''}`}>
         <h1 className={`wedding-title ${textAndButtonVisible ? 'text-button-entry-visible' : ''}`}>
-          Jc and Rain Wedding
+          Jc and Ryne Wedding
         </h1>
+        <img
+          src="decorations/line2.png" // Make sure the image is in /public
+          alt="Decorative"
+          className={`hero-below-title-img ${textAndButtonVisible ? 'text-button-entry-visible' : ''}`}
+        />
 
         <div className={`music-player-container ${textAndButtonVisible ? 'text-button-entry-visible' : ''}`}>
           <audio controls loop>

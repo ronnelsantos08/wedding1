@@ -1,11 +1,4 @@
-  
-  @font-face {
-    font-family: 'MyWeddingFont2';
-    src: url('../fonts/DaltonWhite.otf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
+
 .stack-container {
   position: relative;
   overflow: visible;
@@ -13,7 +6,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #DCDCDC;
+  background: #F0FFF0;
+  z-index: 10;
 }
 /* Container for the draggable images */
 .image-stack-container {
@@ -21,42 +15,49 @@
   margin-top: 5%;
   margin-bottom: 5%;
   position: relative;
-  width: 80vw; /* Responsive width */
-  min-height: 90vh; /* Responsive height */
-  border: 2px solid #ccc;
+  width: 80vw;
+  min-height: 90vh;
   border-radius: 15px;
-  background-color: #fff; /* Fallback background color */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  display: flex; /* Use flex to center content if needed */
-  flex-direction: column; /* Arrange title and images vertically */
-  align-items: center;
-  justify-content: flex-start; /* Align content to the top */
-  padding-top: 20px; /* Add some padding at the top for the title */
+  background-color: #111; /* Optional: dark to enhance neon */
+  border: 2px solid #ff3399; /* Subtle neon border */
 
-  /* Background Image Styling */
-  background-image: url('/ImgGallery/bg.jpeg'); /* Placeholder background image */
-  background-size: cover; /* Ensures the image covers the entire container */
-  background-position: center; /* Centers the image within the container */
-  background-repeat: no-repeat; /* Prevents image repetition */
+  /* Layered shadows: one for neon glow, one for soft depth shadow */
+  box-shadow:
+    0 0 8px rgba(255, 51, 211, 0.4), /* Neon glow */
+    0 4px 12px rgba(0, 0, 0, 0.3);   /* Soft bottom shadow */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+
+  /* Background Image */
+  background-image: url('/ImgGallery/bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 /* Overlay for the background image to improve contrast */
 .background-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(99, 99, 99, 0.5);
   z-index: 1;
 }
 
 /* Add this to ImgGallery.css */
 .app-title {
-  font-family: 'MyWeddingFont2', serif;
+  font-family: 'MyWeddingFont3', serif;
   color: #ffffff;
   margin-bottom: 20px;
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: clamp(.1rem, 5vw, 100rem);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  z-index: 100;
   opacity: 0;
+  margin-top: 5%;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
 }
@@ -65,13 +66,25 @@
   opacity: 1;
   transform: translateY(0);
 }
+.app-p {
+  font-family: "Poiret One", sans-serif;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: clamp(.1rem, 2vw, 100rem);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
 
 
 /* Styling for each individual draggable image */
 .draggable-image {
   position: absolute; /* Allows precise positioning */
-  width: clamp(150px, 15vw, 250px); /* Responsive width using clamp */
-  height: clamp(150px, 15vw, 250px); /* Responsive height using clamp */
+  width: clamp(.1rem, 15vw, 100rem); /* Responsive width using clamp */
+  height: clamp(.1rem, 15vw, 100rem); /* Responsive height using clamp */
   cursor: grab; /* Indicates draggable */
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -154,8 +167,14 @@
 @media (max-width: 768px) {
   .flower-decoration.right {
     right: 4vw;
-    bottom: -4vw;
+    bottom: -15vw;
     width: 200px;
+  }
+  .app-title {
+    font-size: clamp(.1rem, 10vw, 100rem);
+  }
+  .app-p {
+    font-size: clamp(.1rem, 6vw, 100rem);
   }
   .image-stack-container {
     width: 90vw; /* Responsive width */
@@ -166,5 +185,9 @@
     top: calc(-10vw);
     width: 200px;
     transform: rotate(-15deg);
+  }
+  .draggable-image {
+    width: clamp(.1rem, 40vw, 100rem); /* Responsive width using clamp */
+    height: clamp(.1rem, 40vw, 100rem); /* Responsive height using clamp */
   }
 }

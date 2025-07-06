@@ -10,17 +10,13 @@
   --red-gradient-hover-end: #dc2626;   /* Tailwind red-600 */
   --pink-ring-color: rgba(244, 114, 182, 0.5); /* Tailwind pink-300 with opacity */
 }
-
-  
-  @font-face {
-    font-family: 'MyWeddingFont2';
-    src: url('../fonts/DaltonWhite.otf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-
+@font-face {
+  font-family: 'MyWeddingFont3';
+  src: url('../fonts/DaltonWhite.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 .wedding-container {
   position: relative;
@@ -83,10 +79,8 @@
 }
 
 .wedding-title {
-    font-family: 'MyWeddingFont2', serif;
+  font-family: 'MyWeddingFont3', serif;
   font-weight: bold;
-  margin-bottom: 1rem; /* mb-4 */
-  padding: 1rem; /* p-4 */
   font-size: clamp(3rem, 8vw, 6rem);
 }
 .music-player-container {
@@ -152,4 +146,30 @@
 .text-button-entry-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+.hero-below-title-img {
+  width: 70%;
+  height: 30px;
+  margin-top: -10px;
+  margin-bottom: 10%;
+  display: block;
+  filter: invert(1);
+  animation: fadeIn 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+.text-button-entry-visible.hero-below-title-img {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

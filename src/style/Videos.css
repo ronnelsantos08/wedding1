@@ -1,0 +1,23 @@
+/* src/Videos.css */
+
+.videos-container {
+    width: 100%;
+    background: #F0FFF0;
+    text-align: center;
+  }
+  
+  .video-wrapper {
+    padding-top: 20%;
+    padding-bottom: 20%;
+    position: relative;
+    width: 100%;
+    /* No height specified here, as the video element itself will dictate it */
+  }
+  
+  .responsive-video {
+    width: 100%; /* Make the video take 100% of its parent's width */
+    height: auto; /* Allow the height to adjust proportionally */
+    display: block; /* Remove extra space below the video element */
+  }
+
+  

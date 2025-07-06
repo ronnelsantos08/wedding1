@@ -1,0 +1,169 @@
+
+/* Define CSS Variables */
+:root {
+  --text-color: #ffffff;
+  --overlay-color: rgba(0, 0, 0, 0.6); /* Slightly darker overlay for better contrast */
+  --card-bg-color: rgba(255, 255, 255, 0.15); /* Slightly more opaque card background */
+  --accent-color: #ffb6c1; /* Light Pink */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+@font-face {
+    font-family: 'MyWeddingFont';
+    src: url('../fonts/BastligaOne.otf') format('opentype'),
+         url('../fonts//BastligaOne.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'MyWeddingFont2';
+    src: url('../fonts/AmsterdamHandwriting.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  .countdown-container {
+    position: relative;
+    min-height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+  
+    background-image: url('/ImgCountdown/countdown.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+    /* Remove padding to keep bg size intact */
+  }
+  
+  /* Top and bottom borders as thin lines */
+  .countdown-container::before,
+  .countdown-container::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  .countdown-container::before {
+    top: 5px;  /* small offset to avoid cutting the image */
+  }
+  
+  .countdown-container::after {
+    bottom: 5px;  /* same small offset */
+  }
+  
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--overlay-color);
+  z-index: 1;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: opacity 1000ms ease-out;
+}
+
+.content-wrapper.visible {
+  opacity: 1;
+}
+
+.content-wrapper:not(.visible) {
+  opacity: 0;
+}
+
+.main-title {
+  font-family: 'MyWeddingFont', serif;
+  font-size: clamp(2.5rem, 7vw, 5rem); /* Responsive font size */
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px var(--shadow-color);
+  transition: all 1000ms ease-out;
+  opacity: 0;
+  transform: translateY(2rem) scale(0.95);
+}
+
+.main-title.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.sub-title {
+  font-family: "Poiret One", sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2rem); /* Responsive font size */
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px var(--shadow-color);
+  transition: all 1000ms ease-out delay-200ms; /* Staggered entry */
+  opacity: 0;
+  transform: translateY(2rem) scale(0.95);
+}
+
+.sub-title.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.countdown-display {
+  display: flex;
+  gap: clamp(10px, 2vw, 30px); /* Responsive gap between units */
+  margin-top: 2rem;
+  transition: all 1000ms ease-out delay-400ms; /* Staggered entry */
+  opacity: 0;
+  transform: translateY(2rem) scale(0.95);
+}
+
+.countdown-display.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.countdown-unit {
+  background-color: var(--card-bg-color);
+  border-radius: 15px;
+  padding: clamp(10px, 2vw, 25px);
+  box-shadow: 0 5px 15px var(--shadow-color);
+  min-width: clamp(70px, 10vw, 120px); /* Min width for units */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  margin-bottom: 5%;
+}
+
+.countdown-number {
+  font-size: clamp(2rem, 6vw, 4rem); /* Responsive number size */
+  font-weight: bold;
+  color: var(--accent-color); /* Highlight numbers */
+  line-height: 1; /* Adjust line height */
+}
+
+.countdown-label {
+  font-size: clamp(0.8rem, 2vw, 1.2rem); /* Responsive label size */
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}

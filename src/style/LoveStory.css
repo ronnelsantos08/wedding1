@@ -1,0 +1,299 @@
+/* Container - centers the flip card */
+.dm-flip-container {
+    overflow: hidden; /* important to allow overflow */
+    /* keep other styles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #F0FFF0;
+    padding: clamp(1rem, 3vw, 3rem);
+  }
+  
+  
+  /* Flip card styles */
+  .dm-flip-card {
+    position: relative;
+    width: clamp(280px, 70vw, 1000px);
+    height: clamp(360px, 120vh, 1000px);
+    transform-style: preserve-3d;
+    perspective: 2000px;
+    margin-bottom: 5%;
+  
+    overflow: visible; /* Allow overflow for pulsing heart */
+  }
+  
+  /* Front and Back cards share border and radius */
+  .dm-front-card,
+  .dm-back-card {
+    overflow: visible; /* important to allow overflow */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ff4d6d; /* neon pink base */
+    border-radius: 16px;
+  
+    /* Lighter Neon glow */
+    box-shadow:
+      0 0 4px rgba(255, 77, 109, 0.6),
+      0 0 8px rgba(255, 77, 109, 0.4),
+      0 0 12px rgba(255, 77, 109, 0.3);
+  
+    backface-visibility: hidden;
+    transition: transform 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(1rem, 4vw, 2rem);
+    text-align: center;
+    background-color: #fff5e6;
+  }
+  
+  
+  /* Front card specifics */
+  .dm-front-card {
+    background-image: url('/LoveImg/lovestory.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .dm-front-card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 16px;
+  }
+  
+  /* Back card flipped initially */
+  .dm-back-card {
+    display: flex;
+    justify-content: flex-start;
+    transform: rotateY(180deg);
+    color: #333;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff5e6;
+    font-family: 'Georgia', serif;
+    color: #B14556;
+  }
+  
+  .dm-back-card h1 {
+    font-family: 'MyWeddingFont3', serif;
+    font-size: clamp(1.5rem, 7vw + 1rem, 100rem);
+    margin-bottom: 1rem;
+    color: #B14556;
+  }
+  
+  .dm-back-card p {
+    font-family: "Poiret One", sans-serif;
+    font-size: clamp(.1rem, 1.5vw + 0.5rem, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  /* Flip on hover */
+  .dm-flip-card:hover .dm-front-card {
+    transform: rotateY(-180deg);
+  }
+  
+  .dm-flip-card:hover .dm-back-card {
+    transform: rotateY(0deg);
+  }
+  
+  /* Pulsing heart shape */
+  .pulse-heart {
+    position: absolute;
+    bottom: clamp(-10px, -2vw, -15px);
+    left: clamp(-10px, -2vw, -15px);
+    width: clamp(25px, 3vw, 40px);
+    height: clamp(25px, 3vw, 40px);
+    background-color: #ff4d6d;
+    transform: rotate(-45deg);
+    animation: pulse-scale 1.5s infinite;
+    z-index: 3;
+  }
+  
+  .pulse-heart::before,
+  .pulse-heart::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ff4d6d;
+    border-radius: 50%;
+  }
+  
+  .pulse-heart::before {
+    top: -50%;
+    left: 0;
+  }
+  
+  .pulse-heart::after {
+    top: 0;
+    left: 50%;
+  }
+  
+  /* Heart-shaped pulse wave behind the heart */
+  .pulse-heart-wave {
+    position: absolute;
+    bottom: clamp(-20px, -3vw, -25px);
+    left: clamp(-20px, -3vw, -25px);
+    width: clamp(40px, 5vw, 60px);
+    height: clamp(40px, 5vw, 60px);
+    background-color: transparent;
+    border-radius: 16%; /* approximate heart shape rounding */
+    transform: rotate(-45deg);
+    animation: pulse-wave 1.5s infinite;
+    box-shadow: 0 0 15px 5px rgba(255, 77, 109, 0.5);
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .pulse-heart-wave::before,
+  .pulse-heart-wave::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(255, 77, 109, 0.5);
+  }
+  
+  .pulse-heart-wave::before {
+    top: -50%;
+    left: 0;
+  }
+  
+  .pulse-heart-wave::after {
+    top: 0;
+    left: 50%;
+  }
+  
+  /* Animations */
+  @keyframes pulse-scale {
+    0%, 100% {
+      transform: scale(1) rotate(-45deg);
+    }
+    70% {
+      transform: scale(1.3) rotate(-45deg);
+    }
+  }
+  
+  @keyframes pulse-wave {
+    0% {
+      transform: scale(1) rotate(-45deg);
+      opacity: 0.5;
+    }
+    70% {
+      transform: scale(2.5) rotate(-45deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Fade-in container effect */
+/* Slow fade-in for the whole card when it enters view */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.8s ease, transform 1.8s ease;
+  }
+  
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Back content fade-in */
+  .dm-back-card-content {
+    opacity: 0;
+    transition: opacity 0.8s ease 0.5s;
+  }
+  
+  .dm-flip-card:hover .dm-back-card .dm-back-card-content {
+    opacity: 1;
+  }
+
+  /* Reset animated letters to invisible by default */
+.animated-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    animation-play-state: paused;  /* pause animations by default */
+  }
+  
+  /* Only play animations when flipped */
+  .dm-flip-card.flipped .animated-letter.fade-in {
+    animation-name: fadeUp;
+    animation-play-state: running;
+  }
+  
+  .dm-flip-card.flipped .animated-letter.flip-in {
+    animation-name: flipIn;
+    animation-play-state: running;
+    transform-origin: bottom center;
+  }
+  
+  /* Keyframes unchanged */
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes flipIn {
+    0% {
+      opacity: 0;
+      transform: rotateX(90deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateX(0deg);
+    }
+  }
+  
+  
+  @keyframes letterFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0deg);
+    }
+  }
+  .lottie-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(50px, 20vw, 1000px);
+    height: clamp(50px, 20vw, 1000px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.7; /* Adjust transparency here */
+  }
+  
+  
+  @media (max-width: 768px) {
+    .lottie-center {
+        width: clamp(50px, 40vw, 1000px);
+        height: clamp(50px, 40vw, 1000px);
+    }
+    .dm-flip-card {
+        width: clamp(280px, 70vw, 1000px);
+    height: clamp(360px, 70vh, 1000px);
+
+    }
+}

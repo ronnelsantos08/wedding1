@@ -6,6 +6,8 @@
   padding: 0;
 }
 
+
+
 /* Base Body Styles */
 html {
   scroll-behavior: smooth;
@@ -16,7 +18,7 @@ html {
 }
 
 body {
-  background-color: #fdf6ec;
+  background-color: #F0FFF0;
   color: #333;
   line-height: 1.6;
   font-size: 16px;
@@ -28,8 +30,8 @@ body {
 
 @font-face {
   font-family: 'MyWeddingFont';
-  src: url('../fonts/BastligaOne.otf') format('opentype'),
-       url('../fonts/BastligaOne.ttf') format('truetype');
+  src: url('/fonts/BastligaOne.otf') format('opentype'),
+       url('/fonts/BastligaOne.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -37,7 +39,24 @@ body {
 
 @font-face {
   font-family: 'MyWeddingFont2';
-  src: url('../fonts/AmsterdamHandwriting.ttf') format('truetype');
+  src: url('/fonts/AmsterdamHandwriting.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MyWeddingFont1';
+  src: url('/fonts/CalligraphyBrilliant.otf') format('opentype'),
+       url('/fonts/CalligraphyBrilliant.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MyWeddingFont3';
+  src: url('/fonts/DaltonWhite.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
