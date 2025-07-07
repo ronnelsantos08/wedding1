@@ -167,3 +167,57 @@
   margin-top: 0.5rem;
   opacity: 0.8;
 }
+
+/* Initially hidden with slight translation and opacity */
+.content-wrapper,
+.main-title,
+.sub-title,
+.countdown-display {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Visible class triggers fade-in and slide-up */
+.content-wrapper.visible,
+.main-title.visible,
+.sub-title.visible,
+.countdown-display.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* You can keep your existing .countdown-unit animations as is or add slow fade too */
+.countdown-unit {
+  opacity: 0;
+  transform: scale(0.85);
+  animation-fill-mode: forwards;
+  animation-name: fadeScaleUp;
+  animation-duration: 700ms;
+  animation-timing-function: ease;
+}
+
+.countdown-display.visible .countdown-unit:nth-child(1) {
+  animation-delay: 200ms;
+}
+.countdown-display.visible .countdown-unit:nth-child(2) {
+  animation-delay: 400ms;
+}
+.countdown-display.visible .countdown-unit:nth-child(3) {
+  animation-delay: 600ms;
+}
+.countdown-display.visible .countdown-unit:nth-child(4) {
+  animation-delay: 800ms;
+}
+
+@keyframes fadeScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+

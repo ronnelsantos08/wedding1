@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react';
-import '../style/Countdown.css'
+import { useState, useEffect, useRef } from 'react';
+import '../style/Countdown.css';
 
-// Main App component for the Wedding Countdown
 const Countdown = () => {
-  // Set your target wedding date and time here
   const targetDate = new Date('December 25, 2025 10:00:00').getTime();
 
-  // State to hold the countdown values
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -14,66 +11,90 @@ const Countdown = () => {
     seconds: 0,
   });
 
-  // State for entry animations
+  // Use refs for observing when content and countdown come into view
+  const contentRef = useRef<HTMLDivElement>(null);
+  const countdownRef = useRef<HTMLDivElement>(null);
+
+  // Visible states triggered by intersection observer
   const [contentVisible, setContentVisible] = useState(false);
   const [countdownVisible, setCountdownVisible] = useState(false);
 
-  // Function to calculate the time remaining
+  // Calculate time remaining
   const calculateTimeRemaining = () => {
     const now = new Date().getTime();
     const distance = targetDate - now;
 
-    // If the countdown has finished
     if (distance < 0) {
       setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       return;
     }
 
-    // Calculate time units
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    setCountdown({ days, hours, minutes, seconds });
+    setCountdown({
+      days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((distance % (1000 * 60)) / 1000),
+    });
   };
 
-  // useEffect to set up the countdown timer
   useEffect(() => {
-    calculateTimeRemaining(); // Initial calculation
-    const interval = setInterval(calculateTimeRemaining, 1000); // Update every second
+    calculateTimeRemaining();
+    const interval = setInterval(calculateTimeRemaining, 1000);
 
-    // Cleanup interval on component unmount
     return () => clearInterval(interval);
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
-  // useEffect for entry animations
+  // Intersection observer for content fade in
   useEffect(() => {
-    const contentTimer = setTimeout(() => {
-      setContentVisible(true);
-    }, 200); // Title and subtitle fade in
+    const contentObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setContentVisible(true);
+          contentObserver.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (contentRef.current) contentObserver.observe(contentRef.current);
 
-    const countdownTimer = setTimeout(() => {
-      setCountdownVisible(true);
-    }, 800); // Countdown numbers slide up and fade in
+    return () => contentObserver.disconnect();
+  }, []);
 
-    return () => {
-      clearTimeout(contentTimer);
-      clearTimeout(countdownTimer);
-    };
+  // Intersection observer for countdown numbers fade in
+  useEffect(() => {
+    const countdownObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCountdownVisible(true);
+          countdownObserver.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (countdownRef.current) countdownObserver.observe(countdownRef.current);
+
+    return () => countdownObserver.disconnect();
   }, []);
 
   return (
     <div className="countdown-container">
-     
-
       <div className="background-overlay"></div>
 
-      <div className={`content-wrapper ${contentVisible ? 'visible' : ''}`}>
-        <h1 className={`main-title ${contentVisible ? 'visible' : ''}`}>Come Join Us!</h1>
-        <p className={`sub-title ${contentVisible ? 'visible' : ''}`}>The day we say "I Do" is fast approaching.</p>
+      <div
+        className={`content-wrapper ${contentVisible ? 'visible' : ''}`}
+        ref={contentRef}
+      >
+        <h1 className={`main-title ${contentVisible ? 'visible' : ''}`}>
+          Come Join Us!
+        </h1>
+        <p className={`sub-title ${contentVisible ? 'visible' : ''}`}>
+          The day we say "I Do" is fast approaching.
+        </p>
 
-        <div className={`countdown-display ${countdownVisible ? 'visible' : ''}`}>
+        <div
+          className={`countdown-display ${countdownVisible ? 'visible' : ''}`}
+          ref={countdownRef}
+        >
           <div className="countdown-unit">
             <div className="countdown-number">{countdown.days}</div>
             <div className="countdown-label">Days</div>

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import '../style/LoveStory.css';
 
 const splitTextToSpans = (text: string, className = '') =>
@@ -42,14 +41,6 @@ const LoveStory = () => {
         <div className="dm-front-card">
           <div className="pulse-heart-wave"></div>
           <div className="pulse-heart"></div>
-          <div className="lottie-center">
-            <DotLottieReact
-              src="https://lottie.host/d6c1fb74-587f-4334-95c7-792fe2e35f4f/vVJolHP2Ax.lottie"
-              loop
-              autoplay
-              style={{ width: '100%', height: '100%' }}
-            />
-          </div>
         </div>
 
         <div className="dm-back-card">

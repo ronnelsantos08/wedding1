@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #F0FFF0;
+  background: linear-gradient(to bottom right, #fce7f3, #e0f2fe);
   z-index: 10;
 }
 /* Container for the draggable images */
@@ -191,3 +191,4 @@
     height: clamp(.1rem, 40vw, 100rem); /* Responsive height using clamp */
   }
 }
+

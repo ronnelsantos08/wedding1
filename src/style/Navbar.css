@@ -1,0 +1,195 @@
+
+/* Navbar container styles */
+.navbar {
+  background: linear-gradient(to right, #fce7f3, #e0f2fe); /* Soft gradient background */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  position: sticky; /* Makes the navbar stick to the top */
+  top: 0;
+  z-index: 1000; /* Ensures it stays on top of other content */
+  display: flex;
+  justify-content: space-between; /* Space between logo/title and menu/hamburger */
+  align-items: center;
+}
+
+/* Optional: Add a placeholder for a logo or site title */
+.navbar-brand {
+    font-family: 'MyWeddingFont', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff4d6d; /* soft bright red */
+    text-decoration: none;
+    margin-right: auto;
+  
+    /* Subtle neon glow */
+    text-shadow:
+      0 0 3px #fffefe,
+      0 0 6px #ee2020;
+  }
+  
+
+/* Hamburger menu button for mobile */
+.hamburger-button {
+  display: none; /* Hidden by default on larger screens */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001; /* Ensure it's above the menu */
+}
+
+.hamburger-button div {
+  width: 30px;
+  height: 3px;
+  background-color: #6d28d9;
+  border-radius: 5px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Animation for hamburger lines */
+.hamburger-button.open div:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger-button.open div:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.hamburger-button.open div:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Navbar list styles */
+.navbar-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap; /* Allows items to wrap on larger screens */
+  transition: all 0.3s ease-in-out; /* For smooth mobile menu transition */
+}
+
+.navbar-item {
+  margin: 0 1.25rem; /* Spacing between items on desktop */
+}
+
+.navbar-link {
+    font-family: "Poiret One", sans-serif;
+  text-decoration: none;
+  color: #6d28d9; /* Purple color for links */
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  position: relative; /* For the elegant line hover effect */
+  overflow: hidden; /* Ensures underline stays within bounds */
+  display: block; /* To apply padding and hover effects properly */
+}
+
+/* Elegant Line Hover Effect */
+.navbar-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* Start from the center */
+  width: 0; /* Initially no width */
+  height: 3px; /* Thickness of the underline */
+  background-color: #ec4899; /* Pink color for underline */
+  transform: translateX(-50%); /* Center the line */
+  transition: width 0.3s ease-out; /* Animate width */
+}
+
+.navbar-link:hover {
+  color: #ec4899; /* Pink color on hover */
+}
+
+.navbar-link:hover::before {
+  width: 100%; /* Expand to full width on hover */
+}
+
+.navbar-link:active {
+  transform: translateY(0); /* Press down effect, removed lift for simplicity with line */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .hamburger-button {
+    display: flex; /* Show hamburger on small screens */
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 0.75rem 1rem;
+    }
+  
+    .hamburger-button {
+      display: flex;
+    }
+  
+    .navbar-list {
+      display: none; /* Fully hide the menu by default */
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(to right, #fce7f3, #e0f2fe);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.4s ease-in-out;
+      z-index: 999;
+    }
+  
+    .navbar-list.open {
+      display: flex; /* Only show when menu is toggled open */
+      padding: 1rem 0;
+    }
+  
+    .navbar-item {
+      margin: 0.5rem 0;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .navbar-link {
+      font-size: 1rem;
+      padding: 0.6rem 0;
+    }
+  
+    .navbar-link::before {
+      bottom: 5px;
+    }
+    .navbar-link::before {
+        width: 0;
+      }
+    
+      .navbar-link:hover::before {
+        width: 10%; /* or 60% for better visual balance */
+      }
+  }
+  
+@media (max-width: 480px) {
+  .navbar-item {
+    margin: 0.4rem 0;
+  }
+  .navbar-link {
+    font-size: 0.9rem;
+  }
+}
+}
