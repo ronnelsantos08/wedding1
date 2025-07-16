@@ -1,0 +1,153 @@
+
+   /* General body/container styles */
+   .dress-container {
+     min-height: 100vh;
+     background: linear-gradient(to bottom right, #fce7f3, #e0f2fe);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 1rem; /* Equivalent to p-4 */
+     font-family: 'Inter', sans-serif; /* Using Inter as per instructions */
+   }
+
+   /* Dresscode component main container */
+   .dresscode-card {
+     background-color: #ffffff;
+     padding: 1.5rem; /* Equivalent to p-6 */
+     border-radius: 0.75rem; /* Equivalent to rounded-xl */
+     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
+     max-width: 48rem; /* Equivalent to max-w-4xl */
+     width: 100%;
+   }
+
+   /* Headings */
+   .dresscode-title {
+    font-family: 'MyWeddingFont3', serif;
+     font-size: 2.25rem; /* Equivalent to text-4xl */
+     font-weight: 800; /* Equivalent to font-extrabold */
+     text-align: center;
+     color: #1f2937; /* Equivalent to text-gray-800 */
+     margin-bottom: 1rem; /* Equivalent to mb-4 */
+     border-radius: 0.25rem; /* Equivalent to rounded-md */
+   }
+
+   .color-palette-title {
+    font-family: "Poiret One", sans-serif;
+     font-size: 1.5rem; /* Equivalent to text-2xl */
+     font-weight: 700; /* Equivalent to font-bold */
+     text-align: center;
+     color: #1f2937; /* Equivalent to text-gray-800 */
+     margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+   }
+
+   /* Paragraph */
+   .dresscode-description {
+    font-family: "Poiret One", sans-serif;
+     font-size: 1rem; /* Equivalent to text-base */
+     text-align: center;
+     color: #4b5563; /* Equivalent to text-gray-600 */
+     margin-bottom: 2rem; /* Equivalent to mb-8 */
+     line-height: 1.625; /* Equivalent to leading-relaxed */
+   }
+
+   /* Images Section */
+   .images-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 1rem; /* Equivalent to gap-4 */
+     margin-bottom: 2.5rem; /* Equivalent to mb-10 */
+   }
+
+   .image-wrapper {
+     flex-shrink: 0;
+     width: 9rem; /* Equivalent to w-36 */
+     height: 13rem; /* Equivalent to h-52 */
+   }
+
+   .image-wrapper:hover {
+     transform: scale(1.05); /* Equivalent to hover:scale-105 */
+   }
+
+   .image-wrapper img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     border-radius: 0.5rem; /* Equivalent to rounded-lg */
+   }
+
+   /* Color Palette Section */
+   .color-palette-section {
+     margin-top: 2rem; /* Equivalent to mt-8 */
+   }
+
+   .color-swatches-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 0.5rem; /* Equivalent to gap-2 */
+   }
+
+   .color-swatch {
+     width: 4rem; /* Equivalent to w-16 */
+     height: 4rem; /* Equivalent to h-16 */
+     border-radius: 9999px; /* Equivalent to rounded-full */
+     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalent to shadow-md */
+     border: 2px solid #e5e7eb; /* Equivalent to border-2 border-gray-200 */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 0.75rem; /* Equivalent to text-xs */
+     color: #ffffff; /* Equivalent to text-white */
+     font-weight: 600; /* Equivalent to font-semibold */
+   }
+
+   /* Specific pink colors */
+   .pink-100 { background-color: #fce7f3; }
+   .pink-300 { background-color: #fbcfe8; }
+   .pink-500 { background-color: #ec4899; }
+   .pink-700 { background-color: #be185d; }
+   .pink-900 { background-color: #831843; }
+
+   /* Responsive adjustments */
+   @media (min-width: 640px) { /* sm breakpoint */
+     .app-container {
+       padding: 1.5rem; /* p-6 */
+     }
+     .dresscode-card {
+       padding: 2rem; /* p-8 */
+     }
+     .dresscode-title {
+       font-size: 3rem; /* text-5xl */
+     }
+     .dresscode-description {
+       font-size: 1.125rem; /* text-lg */
+     }
+     .image-wrapper {
+       width: 10rem; /* w-40 */
+       height: 15rem; /* h-60 */
+     }
+     .color-swatches-container {
+       gap: 1rem; /* gap-4 */
+     }
+     .color-swatch {
+       width: 5rem; /* w-20 */
+       height: 5rem; /* h-20 */
+     }
+     .color-palette-title {
+       font-size: 1.875rem; /* text-3xl */
+     }
+   }
+
+   @media (min-width: 1024px) { /* lg breakpoint */
+     .app-container {
+       padding: 2rem; /* p-8 */
+     }
+     .dresscode-card {
+       padding: 2.5rem; /* p-10 */
+     }
+     .image-wrapper {
+       width: 12rem; /* w-48 */
+       height: 18rem; /* h-72 */
+     }
+   }

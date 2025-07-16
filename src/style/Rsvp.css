@@ -1,0 +1,186 @@
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rsvp-container {
+    width: 80%;
+  min-height: 100vh;
+  padding: clamp(2rem, 4vw, 5rem) clamp(1rem, 3vw, 4rem);
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  background-color: #fdf2f8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  position: relative;
+}
+
+.rsvp-heading {
+    font-family: "Poiret One", sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  color: #330085;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+.rsvp-paragraph {
+    font-family: "Poiret One", sans-serif;
+    font-size: clamp(1.3rem, 2vw, 100rem);
+  color: #000000;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  z-index: 1;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  z-index: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+    font-family: "Poiret One", sans-serif;
+    font-size: clamp(1.3rem, 1vw, 100rem);
+  font-weight: 600;
+  color: rgb(45, 0, 118);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group textarea {
+  padding: clamp(0.6rem, 1vw, 0.9rem);
+  border: 1px solid #c7d2fe;
+  border-radius: 0.5rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #4a5568;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #240078;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  color: #4a5568;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 0.5rem;
+  accent-color: #6d28d9;
+}
+
+.submit-button {
+    font-family: "Poiret One", sans-serif;
+  display: inline-block;
+  padding: clamp(0.7rem, 1vw, 1rem) clamp(1.2rem, 3vw, 2rem);
+  background: linear-gradient(90deg, rgb(235, 110, 171) 0%, rgb(214, 56, 111) 100%);
+  color: #ffffff;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 800;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submission-message {
+  margin-top: 1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 600;
+}
+
+.submission-message.success {
+  color: #28a745;
+}
+
+.submission-message.error {
+  color: #dc3545;
+}
+
+.decoration-image {
+  position: absolute;
+  bottom: -10px;
+  right: 1px;
+  width: clamp(60px, 20vw, 1000px);
+  height: clamp(60px, 20vw, 1000px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Responsive tweaks for smaller screens if needed */
+@media (min-width: 768px) {
+  .rsvp-heading {
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+  }
+  .rsvp-paragraph {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+  }
+  .decoration-image {
+    width: clamp(60px, 10vw, 1000px);
+    height: clamp(60px, 10vw, 1000px);
+  }
+  .rsvp-container {
+    width: 40%;
+  }
+}

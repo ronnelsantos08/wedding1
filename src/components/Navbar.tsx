@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
     
       {/* Optional: Brand/Logo */}
-      <a href="#home" className="navbar-brand">J and R Wedding</a>
+      <a href="#home" className="navbar-brand">Our Wedding</a>
 
       {/* Hamburger Button */}
       <button className={`hamburger-button ${isOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle navigation">
@@ -27,10 +27,13 @@ const Navbar: React.FC = () => {
       {/* Navigation List */}
       <ul className={`navbar-list ${isOpen ? 'open' : ''}`}>
         <li className="navbar-item">
-          <a href="#home" className="navbar-link" onClick={toggleMenu}>Home</a>
+          <a href="/" className="navbar-link" onClick={toggleMenu}>Home</a>
         </li>
         <li className="navbar-item">
-          <a href="#rsvp" className="navbar-link" onClick={toggleMenu}>RSVP</a>
+          <a href="/rsvp" className="navbar-link" onClick={toggleMenu}>RSVP</a>
+        </li>
+        <li className="navbar-item">
+          <a href="/dresscode" className="navbar-link" onClick={toggleMenu}>Dress Code</a>
         </li>
         <li className="navbar-item">
           <a href="#programs" className="navbar-link" onClick={toggleMenu}>Programs</a>

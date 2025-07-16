@@ -129,7 +129,7 @@ const ImgGallery: React.FC = () => {
     <div className="stack-container">
       {/* Decorative flowers */}
       <img src="/decorations/deco1.png" alt="Flower Left" className="flower-decoration left" />
-      <img src="/decorations/deco1.png" alt="Flower Right" className="flower-decoration right" />
+      <img src="/decorations/ring.png" alt="Flower Right" className="flower-decoration right" />
 
       <div ref={containerRef} className="image-stack-container">
         <div className="background-overlay" />

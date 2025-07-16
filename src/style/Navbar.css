@@ -4,7 +4,6 @@
   background: linear-gradient(to right, #fce7f3, #e0f2fe); /* Soft gradient background */
   padding: 1rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Inter', sans-serif;
   position: sticky; /* Makes the navbar stick to the top */
   top: 0;
   z-index: 1000; /* Ensures it stays on top of other content */
