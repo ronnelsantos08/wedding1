@@ -10,7 +10,7 @@ interface GiftProps {
 
 const Gift: React.FC<GiftProps> = ({
   title = "Your Presence Is Our Present",
-  description = "Your love and support on our special day are the greatest gifts we could ask for. Should you wish to honor us with a gift, a contribution towards our future endeavors would be greatly appreciated.",
+  description = "Your love, laughter and company at our wedding is all we need. However, if you prefer to purchase a gift, feel free to surprise us in your own way",
   decorationImageUrl = "/decorations/deco3.png"
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);

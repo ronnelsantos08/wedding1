@@ -35,11 +35,11 @@ const Hero = () => {
     const userAgent = window.navigator.userAgent.toLowerCase();
     const isAndroid = userAgent.includes("android");
 
-    const title = encodeURIComponent("Jc and Rain Wedding");
-    const details = encodeURIComponent("Join us to celebrate the wedding of Jc and Rain!");
+    const title = encodeURIComponent("Shen and Miel Wedding");
+    const details = encodeURIComponent("Join us to celebrate the wedding of Shen and Miel!");
     const location = encodeURIComponent("Your Wedding Venue, City, Country");
-    const startDate = "20251225T100000Z";
-    const endDate = "20251225T170000Z";
+    const startDate = "20250928T100000Z";
+    const endDate = "20250928T170000Z";
 
     if (isAndroid) {
       // Open Google Calendar for Android
@@ -53,15 +53,15 @@ const Hero = () => {
       const icsContent = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//Jc and Rain Wedding//EN",
+        "PRODID:-//Shen and Miel Wedding//EN",
         "BEGIN:VEVENT",
-        `UID:${new Date().getTime()}@jc-rain.com`,
+        `UID:${new Date().getTime()}@shen-miel.com`,
         `DTSTAMP:${formatDateTime(new Date())}`,
         `DTSTART:${startDate}`,
         `DTEND:${endDate}`,
-        `SUMMARY:Jc and Rain Wedding`,
-        `DESCRIPTION:Join us to celebrate the wedding of Jc and Rain!`,
-        `LOCATION:Your Wedding Venue, City, Country`,
+        `SUMMARY:Shen and Miel Wedding`,
+        `DESCRIPTION:Join us to celebrate the wedding of Shen and Miel!`,
+        `LOCATION:Hacienda Solange Indang Cavite`,
         "END:VEVENT",
         "END:VCALENDAR",
       ].join("\n");
@@ -70,7 +70,7 @@ const Hero = () => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "Jc_Rain_Wedding_SaveTheDate.ics";
+      a.download = "Shen_Miel_Wedding_SaveTheDate.ics";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -97,7 +97,7 @@ const Hero = () => {
 
       <div className={`content-container ${contentVisible ? 'visible' : ''}`}>
         <h1 className={`wedding-title ${textAndButtonVisible ? 'text-button-entry-visible' : ''}`}>
-          Jc and Ryne Wedding
+          Shen and Miel Wedding
         </h1>
         <img
           src="decorations/line2.png" // Make sure the image is in /public
@@ -113,7 +113,7 @@ const Hero = () => {
         </div>
 
         <p className={`wedding-date ${textAndButtonVisible ? 'text-button-entry-visible' : ''}`}>
-          December 25, 2025
+          September 28, 2025
         </p>
 
         <button

@@ -1,0 +1,102 @@
+
+  /* Updated Lora import to include the 700 font weight */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap');
+
+  .whimsical-theme {
+    background-color: #fcf8e8;
+    color: #4a5746;
+    font-family: 'Lora', serif;
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #4a5746;
+    position: relative;
+    font-weight: 700;
+  }
+  
+  .title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #d1b0b5;
+    margin: 0.5rem auto 0;
+  }
+
+  .grid-container {
+    display: grid;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background-color: #e6eada;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #c9d2c1;
+    padding-bottom: 0.5rem;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .list-item {
+    padding: 0.25rem 0;
+    font-size: 1rem;
+    color: #5d6d5c;
+  }
+  
+  .s-title {
+    font-weight: 700; /* This will now work with the updated font import */
+    margin-bottom: 0.5rem;
+  }
+
+  /* Media queries for responsiveness */
+  @media (min-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-item-full {
+      grid-column: 1 / -1;
+    }
+    .card-title {
+      text-align: left;
+    }
+    .list {
+      text-align: left;
+    }
+    .sub-title {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }

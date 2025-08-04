@@ -39,10 +39,10 @@ const Navbar: React.FC = () => {
           <a href="#programs" className="navbar-link" onClick={toggleMenu}>Programs</a>
         </li>
         <li className="navbar-item">
-          <a href="#entourage" className="navbar-link" onClick={toggleMenu}>Entourage</a>
+          <a href="/entourage" className="navbar-link" onClick={toggleMenu}>Entourage</a>
         </li>
         <li className="navbar-item">
-          <a href="#faq" className="navbar-link" onClick={toggleMenu}>FAQ</a>
+          <a href="/faq" className="navbar-link" onClick={toggleMenu}>FAQ</a>
         </li>
       </ul>
     </nav>

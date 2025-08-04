@@ -6,9 +6,9 @@ const Footer: React.FC = () => {
     <footer className="footer-container">
       
       <p className="footer-text">
-        &copy; {new Date().getFullYear()} Our Wedding. All Rights Reserved. Jc And Ryne Wedding.
+        &copy; {new Date().getFullYear()} Our Wedding. All Rights Reserved. Shen And Miel Wedding.
         <br />
-        Site Developed by: Ronnel
+        Site Developed by: Webworks
       </p>
       <div className="social-icons">
         {/* Facebook Icon */}

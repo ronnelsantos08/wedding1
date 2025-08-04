@@ -1,7 +1,7 @@
 
 /* Navbar container styles */
 .navbar {
-  background: linear-gradient(to right, #fce7f3, #e0f2fe); /* Soft gradient background */
+  background: linear-gradient(to right, #f48898, 		#5be7cf); /* Soft gradient background */
   padding: 1rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky; /* Makes the navbar stick to the top */
@@ -17,14 +17,14 @@
     font-family: 'MyWeddingFont', serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: #ff4d6d; /* soft bright red */
+    color: black; /* soft bright red */
     text-decoration: none;
     margin-right: auto;
   
     /* Subtle neon glow */
     text-shadow:
       0 0 3px #fffefe,
-      0 0 6px #ee2020;
+      0 0 6px black;
   }
   
 
@@ -84,7 +84,7 @@
 .navbar-link {
     font-family: "Poiret One", sans-serif;
   text-decoration: none;
-  color: #6d28d9; /* Purple color for links */
+  color: black; /* Purple color for links */
   font-size: 1.1rem;
   font-weight: 600;
   padding: 0.5rem 0.75rem;
@@ -147,7 +147,7 @@
       top: 100%;
       left: 0;
       width: 100%;
-      background: linear-gradient(to right, #fce7f3, #e0f2fe);
+      background: linear-gradient(to bottom right, #f48898, #ecd3bd);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
       padding: 0;
       overflow: hidden;

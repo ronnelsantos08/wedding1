@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom right, #fce7f3, #e0f2fe);
+  background: linear-gradient(to bottom right, 		#f48898, 	#ecd3bd);
   z-index: 10;
 }
 /* Container for the draggable images */

@@ -1,8 +1,8 @@
 
 .prenup-container {
-  background: linear-gradient(to bottom right, #e0f2fe, #fce7f3);
+  background: linear-gradient(to bottom right, #c8cbb6, #b69a82);
     background: rgb(238, 78, 107); /* Fallback Color */
-    background: linear-gradient(90deg, rgb(235, 110, 171) 0%, rgb(214, 56, 111) 100%);
+    background: linear-gradient(90deg, 	#f4dbdb 0%, #b69a82 100%);
     margin: 0px;
 }
 
@@ -14,7 +14,7 @@
   
   .title {
     font-family: 'MyWeddingFont', serif;
-    color: white;
+    color: black;
     font-size: clamp(3rem, 7vw, 100rem);
     text-align: center;
     margin-bottom: clamp(2rem, 8vh, 8rem);
@@ -22,7 +22,7 @@
   }
   .prenup-description {
     width: 100%;
-    color: white;
+    color: black;
     font-family: "Poiret One", sans-serif;
     font-size: clamp(1.4rem, 1.3vw, 100rem);
     font-weight: 300;
@@ -79,7 +79,7 @@
     grid-template-rows: 1fr auto;
     width: 100%;
     background: rgb(238, 78, 107); /* Fallback Color */
-    background: linear-gradient(90deg, rgb(235, 110, 171) 0%, rgb(214, 56, 111) 100%);
+    background: linear-gradient(90deg, 	#f4dbdb 0%, #b69a82 100%);
   }
   
   @media only screen and (max-width: 600px) {
@@ -126,7 +126,7 @@
   .svg-background-wrapper2 {
     width: 100%; /* Adjust as needed */
     height: clamp(.1rem, 13vw, 100rem); /* Adjust as needed */
-    background:linear-gradient(to bottom left, #fce7f3, #e0f2fe); /* This will be the "background" color */
+    background:linear-gradient(to bottom left, #c8cbb6, #ecd3bd); /* This will be the "background" color */
     -webkit-mask-image: url('https://assets.codepen.io/2895033/border.svg');
     mask-image: url('https://assets.codepen.io/2895033/border.svg');
     -webkit-mask-size: cover; /* Adjust mask size */

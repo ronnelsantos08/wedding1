@@ -14,7 +14,8 @@ function Dresscode() {
     "https://lottie.host/298c0d42-6b55-4661-abe9-366e10d50493/9YSRoR8W4j.lottie",
   ];
 
-  const pinkPalette = ["pink-100", "pink-300", "pink-500", "pink-700", "pink-900"];
+  const pinkPalette = ["#5745a5", "#4aa0e3", "#5be7cf", "#ffb645", "#f48898"];
+
 
   const animationVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
@@ -71,8 +72,8 @@ function Dresscode() {
           variants={animationVariants}
           style={{ transitionDelay: `${descAnim.delay}s` }}
         >
-          Here are some style inspirations and the suggested color palette for our event.
-          We encourage comfortable yet elegant attire that fits the festive atmosphere.
+        Formal dresses in pastel colors and black tuxedo suit for principal sponsors and entourage
+For guests semiformal attire in pastel colors
         </motion.p>
 
         {/* Lottie animations */}
@@ -113,21 +114,24 @@ function Dresscode() {
           </motion.h2>
 
           <div className="color-swatches-container">
-            {pinkPalette.map((colorClass, index) => {
-              const anim = useScrollAnimation((index + items.length) * 0.15);
-              return (
-                <motion.div
-                  key={index}
-                  className={`color-swatch ${colorClass}`}
-                  ref={anim.ref}
-                  initial="hidden"
-                  animate={anim.controls}
-                  variants={animationVariants}
-                  style={{ transitionDelay: `${anim.delay}s` }}
-                />
-              );
-            })}
-          </div>
+  {pinkPalette.map((colorHex, index) => {
+    const anim = useScrollAnimation((index + items.length) * 0.15);
+    return (
+      <motion.div
+        key={index}
+        className="color-swatch"
+        ref={anim.ref}
+        initial="hidden"
+        animate={anim.controls}
+        variants={animationVariants}
+        style={{
+          backgroundColor: colorHex,
+          transitionDelay: `${anim.delay}s`,
+        }}
+      />
+    );
+  })}
+</div>
         </div>
 
       </div>
