@@ -7,7 +7,7 @@ const Faq = () => {
   const faqData = [
     {
       question: 'What is the wedding dress code?',
-      answer: 'The dress code is formal. We kindly ask that you wear shades of blue and refrain from wearing white or cream.',
+      answer: 'Formal dresses in pastel colors and black tuxedo suit for principal sponsors and entourage For guests semiformal attire in pastel colors.',
     },
     {
       question: 'Can I bring a plus-one?',

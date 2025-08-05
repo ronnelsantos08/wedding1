@@ -110,7 +110,7 @@ For guests semiformal attire in pastel colors
             variants={animationVariants}
             style={{ transitionDelay: '0.1s' }}
           >
-            Color Palette: Shades of Pink
+            Whimsical Garden Color Palette
           </motion.h2>
 
           <div className="color-swatches-container">
