@@ -18,7 +18,7 @@ import Entourage from './components/Entourage';
 import Faq from './components/Faq';
 
 const exampleVideoUrl = "/videos/video.mp4";
-const exampleThumbnailUrl = "/prenup/Prenup1.jpg";
+const exampleThumbnailUrl = "/prenup/Prenup71.jpeg";
 
 const leftVenueData = {
   mainImageUrl: "/locations/location1.jpg",
