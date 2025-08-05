@@ -58,7 +58,6 @@ const Entourage = () => {
           'Bryan Jay Edong',
           'Daniel Gaguan',
           'Kerbie Garcia',
-          'Dexter B Galaura',
           'Jerry Sabando',
         ],
       },
@@ -70,7 +69,7 @@ const Entourage = () => {
       },
       veil: {
         title: 'Veil',
-        members: ['Abigail Hermoso', 'Dexter Galuara'],
+        members: ['Abigail Hermoso', 'Daniel Gaguan'],
       },
       cord: {
         title: 'Cord',
