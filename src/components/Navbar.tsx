@@ -35,9 +35,7 @@ const Navbar: React.FC = () => {
         <li className="navbar-item">
           <a href="/dresscode" className="navbar-link" onClick={toggleMenu}>Dress Code</a>
         </li>
-        <li className="navbar-item">
-          <a href="#programs" className="navbar-link" onClick={toggleMenu}>Programs</a>
-        </li>
+       
         <li className="navbar-item">
           <a href="/entourage" className="navbar-link" onClick={toggleMenu}>Entourage</a>
         </li>
