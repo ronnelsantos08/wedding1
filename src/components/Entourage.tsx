@@ -240,9 +240,9 @@ const Entourage = () => {
                 <li className="list-item">Rosemarie Talicol</li>
               </ul>
               <ul className="list">
-                <p className="s-title">Mr Leciel Tibayan and Ms Sandy Relliquete</p>
+                <p className="s-title">Ms Leciel Tibayan and Mr Benjamin B. Anico</p>
                 <li className="list-item">Leciel Tibayan</li>
-                <li className="list-item">Sandy Relliquete</li>
+                <li className="list-item">Benjamin B. Anico</li>
               </ul>
               <ul className="list">
                 <p className="s-title">Mr & Mrs Nojas</p>

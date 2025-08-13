@@ -27,7 +27,7 @@ const leftVenueData = {
   churchAddress: "Sitio Portugal, Brgy. Tambo Malaki",
   locationLink: "https://maps.app.goo.gl/7XvY7hRaj9kdZnCn8",
   title: "Wedding Venue",
-  description: "Our beautiful outdoor ceremony will take place in the elegant Grand Ballroom Garden, known for its stunning natural backdrop and romantic ambiance. Please arrive by 4:00 PM for seating.",
+  description: "Our beautiful outdoor ceremony will take place in the elegant Grand Ballroom Garden, known for its stunning natural backdrop and romantic ambiance. Please arrive by 4:00 PM for seating. Ceremony will start at 5:00pm",
 };
 
 const rightVenueData = {
